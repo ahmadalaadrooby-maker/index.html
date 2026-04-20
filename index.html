@@ -575,11 +575,11 @@
 
     function getContactUrl(text) {
       const whatsappPhone = '962772555431';
-      const messengerUsername = 'ahmd.la.drwby';
       if (selectedContactMethod === 'whatsapp') {
         return `https://wa.me/${whatsappPhone}?text=${encodeURIComponent(text)}`;
       }
-      return `https://m.me/${messengerUsername}?ref=${encodeURIComponent(text)}`;
+      // For messenger, we handle separately
+      return `https://m.me/${messengerUsername}`;
     }
 
     function orderProduct(button) {
@@ -589,8 +589,14 @@
       const quantitySelect = card.querySelector('.quantity');
       const quantity = quantitySelect ? quantitySelect.value : '1';
       const text = `السلام عليكم، أريد ${quantity} من ${product} بسعر ${priceStr}.`;
-      const url = getContactUrl(text);
-      window.open(url, '_blank');
+      if (selectedContactMethod === 'messenger') {
+        alert('سيتم فتح الماسنجر. يرجى نسخ الرسالة التالية وإرسالها:\n\n' + text);
+        const url = `https://m.me/${messengerUsername}`;
+        window.open(url, '_blank');
+      } else {
+        const url = getContactUrl(text);
+        window.open(url, '_blank');
+      }
     }
 
     function setRating(value) {
@@ -626,8 +632,14 @@
       }
       const comment = document.getElementById('ratingComment').value.trim();
       const text = `السلام عليكم، تقييم الموقع: ${selectedRating} من 5. تقييم التواصل: ${selectedContactRating} من 5. ${comment ? 'ملاحظتي: ' + comment : 'لا يوجد تعليق إضافي.'}`;
-      const url = getContactUrl(text);
-      window.open(url, '_blank');
+      if (selectedContactMethod === 'messenger') {
+        alert('سيتم فتح الماسنجر. يرجى نسخ الرسالة التالية وإرسالها:\n\n' + text);
+        const url = `https://m.me/${messengerUsername}`;
+        window.open(url, '_blank');
+      } else {
+        const url = getContactUrl(text);
+        window.open(url, '_blank');
+      }
     }
 
     function testContact() {
