@@ -293,6 +293,87 @@
     .rating-star.selected {
       opacity: 1 !important;
     }
+    @media (max-width: 768px) {
+      header {
+        padding: 16px 12px;
+      }
+      header h1 {
+        font-size: 1.8rem;
+      }
+      header p {
+        font-size: 0.9rem;
+      }
+      .container {
+        padding: 0 12px;
+      }
+      .grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+      .card img {
+        height: 180px;
+      }
+      .card-content h2 {
+        font-size: 1.2rem;
+      }
+      .welcome-section {
+        padding: 20px;
+        grid-template-columns: 1fr;
+      }
+      .welcome-text h2 {
+        font-size: 1.8rem;
+      }
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .hero-actions .button {
+        width: 100%;
+        text-align: center;
+      }
+      .contact-toggle {
+        flex-direction: column;
+        gap: 8px;
+      }
+      .order-row {
+        flex-direction: column;
+        gap: 8px;
+      }
+      .order-row .quantity {
+        width: 100%;
+      }
+      .order-row .button {
+        width: 100%;
+      }
+      nav {
+        gap: 12px;
+      }
+      nav a {
+        font-size: 0.9rem;
+      }
+      footer {
+        font-size: 0.85rem;
+        padding: 16px 12px 20px;
+      }
+    }
+    @media (max-width: 480px) {
+      header h1 {
+        font-size: 1.5rem;
+      }
+      .logo {
+        font-size: 1.2rem;
+      }
+      .welcome-text h2 {
+        font-size: 1.5rem;
+      }
+      .card-content h2 {
+        font-size: 1.1rem;
+      }
+      .button {
+        padding: 10px 14px;
+        font-size: 0.9rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -446,7 +527,7 @@
     <section id="rating" class="page-section contact-section" data-page="rating">
       <h2>تقييم الموقع</h2>
       <p>اختر تقييمك وأضف ملاحظتك هنا، وسنرسلها مباشرة عبر القناة التي اخترتها: واتساب أو ماسنجر.</p>
-      <p>رابط الماسنجر: <strong><a href="https://m.me/YOUR_MESSENGER_USERNAME" target="_blank" rel="noreferrer">https://m.me/YOUR_MESSENGER_USERNAME</a></strong></p>
+      <p>رابط الماسنجر: <strong><a href="https://m.me/ahmd.la.drwby" target="_blank" rel="noreferrer">https://m.me/ahmd.la.drwby</a></strong></p>
       <p>رقم الواتساب: <strong>+962 7 7255 5431</strong></p>
       <h3>تقييم الموقع</h3>
       <div style="margin: 20px 0; display: flex; gap: 10px; flex-wrap: wrap;">
@@ -494,7 +575,7 @@
 
     function getContactUrl(text) {
       const whatsappPhone = '962772555431';
-      const messengerUsername = 'YOUR_MESSENGER_USERNAME';
+      const messengerUsername = 'ahmd.la.drwby';
       if (selectedContactMethod === 'whatsapp') {
         return `https://wa.me/${whatsappPhone}?text=${encodeURIComponent(text)}`;
       }
