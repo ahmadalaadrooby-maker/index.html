@@ -567,6 +567,10 @@
     }
 
     function showSection(page) {
+      document.querySelectorAll('.page-section').forEach(section => {
+        section.classList.toggle('active', section.dataset.page === page);
+      });
+    }
 
     let selectedRating = 0;
     let selectedContactRating = 0;
