@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>موقع بيع المدهش للشبس والبسكوت</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: #f8f4ee;
+      color: #222;
+    }
+    header {
+      background: #d94f2a;
+      color: #fff;
+      padding: 24px 20px;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.4rem;
+      letter-spacing: 1px;
+    }
+    header p {
+      margin: 8px auto 0;
+      max-width: 720px;
+      font-size: 1.05rem;
+      opacity: 0.95;
+    }
+    .container {
+      max-width: 1120px;
+      margin: 32px auto;
+      padding: 0 18px 40px;
+    }
+    .grid {
+      display: grid;
+      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
+    .card {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+      overflow: hidden;
+      border: 1px solid #ebdfd5;
+    }
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      background: #f0e6d8;
+    }
+    .card-content {
+      padding: 22px;
+    }
+    .card-content h2 {
+      margin: 0 0 12px;
+      font-size: 1.35rem;
+      color: #333;
+    }
+    .card-content p {
+      margin: 0 0 14px;
+      line-height: 1.7;
+      color: #555;
+    }
+    .card-content strong {
+      display: block;
+      margin-bottom: 12px;
+      color: #d94f2a;
+      font-size: 1rem;
+    }
+    .button {
+      display: inline-block;
+      padding: 12px 18px;
+      background: #d94f2a;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 10px;
+      transition: background 0.2s ease;
+      border: none;
+      cursor: pointer;
+    }
+    .button.secondary {
+      background: #444;
+    }
+    .button:hover {
+      background: #b53d1d;
+    }
+    .button.secondary:hover {
+      background: #222;
+    }
+    .order-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      margin-top: 16px;
+    }
+    .quantity {
+      width: 100px;
+      padding: 10px 12px;
+      border-radius: 10px;
+      border: 1px solid #dcc8bc;
+      font-size: 1rem;
+      background: #fff;
+      color: #222;
+    }
+    header {
+      background: #d94f2a;
+      color: #fff;
+      padding: 18px 20px;
+      text-align: center;
+    }
+    .header-top {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      max-width: 1120px;
+      margin: 0 auto 12px;
+    }
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 16px;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      border-bottom: 2px solid transparent;
+      padding-bottom: 2px;
+    }
+    nav a:hover {
+      border-color: rgba(255,255,255,0.9);
+    }
+    .welcome-section {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 26px;
+      align-items: center;
+      background: #fff;
+      border-radius: 20px;
+      padding: 28px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+      margin-bottom: 24px;
+    }
+    .store-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      background: rgba(255,255,255,0.3);
+      padding: 16px 18px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.25);
+      margin-bottom: 18px;
+    }
+    .logo-mark {
+      font-size: 2.2rem;
+    }
+    .welcome-text h2 {
+      margin: 0;
+      font-size: 2.2rem;
+      color: #2b1a14;
+    }
+    .welcome-desc {
+      margin: 18px 0 0;
+      font-size: 1.05rem;
+      line-height: 1.85;
+      max-width: 720px;
+      color: #4d3e35;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 20px;
+    }
+    .contact-toggle {
+      margin-top: 16px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+      justify-content: center;
+    }
+    .contact-toggle span {
+      font-weight: 600;
+      color: #fff;
+    }
+    .contact-button.active {
+      opacity: 1;
+      box-shadow: 0 0 0 2px rgba(255,255,255,0.9);
+    }
+    .header-logo {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid rgba(255,255,255,0.8);
+    }
+    .welcome-image img {
+      width: 100%;
+      border-radius: 18px;
+      box-shadow: 0 18px 35px rgba(0,0,0,0.1);
+    }
+    .page-section {
+      display: none;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .page-section.active {
+      display: block;
+      opacity: 1;
+    }
+    .page-section.active.welcome-section {
+      display: grid;
+    }
+    .about-section,
+    .contact-section,
+    .hero,
+    .welcome-section {
+      background: #fff;
+      border-radius: 18px;
+      padding: 24px;
+      margin-bottom: 24px;
+      border: 1px solid #f1e3d7;
+    }
+    .about-section h2,
+    .contact-section h2,
+    .hero h2,
+    .welcome-section h2 {
+      margin-top: 0;
+    }
+    .about-section p,
+    .contact-section p,
+    .hero p,
+    .welcome-desc {
+      margin: 12px 0 0;
+      line-height: 1.8;
+    }
+    .footer-rate {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 14px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+    .footer-rate p {
+      margin: 0;
+      color: #4d3e35;
+      font-weight: 600;
+    }
+    @media (min-width: 860px) {
+      .welcome-section {
+        grid-template-columns: 1.2fr 0.8fr;
+      }
+    }
+    .hero h2 {
+      margin-top: 0;
+      font-size: 1.8rem;
+    }
+    .hero p {
+      margin: 12px 0 0;
+      line-height: 1.8;
+    }
+    footer {
+      text-align: center;
+      padding: 18px 12px 28px;
+      color: #6f5c4b;
+      font-size: 0.95rem;
+    }
+    .rating-star {
+      background: none;
+      border: none;
+      color: #ffd700;
+      font-size: 1.5rem;
+      opacity: 0.3;
+      cursor: pointer;
+    }
+    .rating-star:hover {
+      opacity: 1;
+    }
+    .rating-star.selected {
+      opacity: 1 !important;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-top">
+      <img src="Gemini_Generated_Image_ci2aqsci2aqsci2a%20(1).png" alt="شعار متجر أحمد" class="header-logo" />
+      <div class="logo">المتجر المدهش</div>
+      <nav>
+        <a href="#home" onclick="showSection('home'); return false;">الرئيسية</a>
+        <a href="#about" onclick="showSection('about'); return false;">من نحن</a>
+        <a href="#products" onclick="showSection('products'); return false;">منتجاتنا</a>
+        <a href="#rating" onclick="showSection('rating'); return false;">تقييم</a>
+      </nav>
+    </div>
+    <p>تسوق أفضل تشكيلة من الشبس بنكهات مميزة والبسكوت اللذيذ. يمكنك اختيار إرسال الطلب عبر واتساب أو ماسنجر.</p>
+    <div class="contact-toggle">
+      <span>اختر طريقة التواصل:</span>
+      <button class="button secondary contact-button" type="button" onclick="setContactMethod('whatsapp')">واتساب</button>
+      <button class="button secondary contact-button active" type="button" onclick="setContactMethod('messenger')">ماسنجر</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="home" class="page-section welcome-section active" data-page="home">
+      <div class="welcome-text">
+        <div class="store-badge">
+          <span class="logo-mark">✨</span>
+          <div>
+            <h2>مرحبا بك في متجر المدهش</h2>
+            <p>أهلاً بك في وجهتك لشراء الشبس والبسكوت السريع بأفضل جودة وسعر.</p>
+          </div>
+        </div>
+        <p class="welcome-desc">يمكنك الآن اختيار الكمية المناسبة لكل منتج، ثم إرسال الطلب عبر واتساب أو ماسنجر حسب اختيارك. الصفحة تحتوي على معلومات عنا، المنتجات، وطريقة التواصل.</p>
+        <div class="hero-actions">
+          <a class="button" href="#products" onclick="showSection('products'); return false;">تصفح المنتجات</a>
+          <button class="button secondary" type="button" onclick="showSection('rating'); return false;">قيم الموقع</button>
+        </div>
+      </div>
+      <div class="welcome-image">
+        <img src="Gemini_Generated_Image_ci2aqsci2aqsci2a%20(1).png" alt="شعار متجر أحمد" />
+      </div>
+    </section>
+
+    <section id="about" class="page-section about-section" data-page="about">
+      <h2>من نحن</h2>
+      <p>متجر المدهش يقدم لك تشكيلة من المنتجات السريعة والمقرمشة بأفضل الأسعار والخدمة. هدفنا توفير تجربة طلب سهلة وسريعة عن طريق التواصل المباشر عبر واتساب أو ماسنجر.</p>
+    </section>
+
+    <section id="products" class="page-section hero" data-page="products">
+      <h2>منتجاتنا الخاصة</h2>
+      <p>اكتشف أجمل النكهات: الشبس بنكهة بيتزا على جبنة، بسكوت ستار، بسكوت بريك، ونودلز إندومي السريعة. كل منتج معدّ للعائلة والسهرات.</p>
+      <div class="grid" data-page="products">
+      <article class="card">
+        <img src="مدهش-1.jpg" alt="شبس مودهيش بنكهة بيتزا" />
+        <div class="card-content">
+          <h2>شبس مودهيش بنكهة بيتزا</h2>
+          <strong>السعر: 15 قرش</strong>
+          <p>الشبس اللذيذ بطعم بيتزا قوي وجبنة ممتعة، مناسب للسهرات وللمشاركة مع الأصحاب.</p>
+          <div class="order-row">
+            <select class="quantity" aria-label="اختر الكمية لشبس موديش">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+            </select>
+            <button class="button" type="button" data-product="شبس مودهيش" data-price="15 قرش" onclick="orderProduct(this)">اطلب الآن</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="ستار.jfif" alt="بسكوت ستارز" />
+        <div class="card-content">
+          <h2>بسكوت ستارز</h2>
+          <strong>السعر: 10 قروش</strong>
+          <p>بسكوت ستارز المقرمش بطعم رائع، مثالي مع القهوة والشاي أو كوجبة خفيفة سريعة.</p>
+          <div class="order-row">
+            <select class="quantity" aria-label="اختر الكمية لبسكوت ستارز">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+            </select>
+            <button class="button" type="button" data-product="بسكوت ستارز" data-price="10 قروش" onclick="orderProduct(this)">اطلب الآن</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="بريك.jfif" alt="بسكوت بريك" />
+        <div class="card-content">
+          <h2>بسكوت بريك</h2>
+          <strong>السعر: 10 قروش</strong>
+          <p>بسكوت Break المقرمش بطعم ممتاز، خيار رائع للطلاب والأطفال مع مشروب بارد أو ساخن.</p>
+          <div class="order-row">
+            <select class="quantity" aria-label="اختر الكمية لبسكوت بريك">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+            </select>
+            <button class="button" type="button" data-product="بسكوت بريك" data-price="10 قروش" onclick="orderProduct(this)">اطلب الآن</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="اندومي.jfif" alt="إندومي" />
+        <div class="card-content">
+          <h2>إندومي</h2>
+          <strong>السعر: 25 قرش</strong>
+          <p>إندومي بنكهة الكاري والدجاج، وجبة سريعة وسهلة التحضير لأي وقت. مناسب للدراسة والسفر.</p>
+          <div class="order-row">
+            <select class="quantity" aria-label="اختر الكمية لإندومي">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+            </select>
+            <button class="button" type="button" data-product="إندومي" data-price="25 قرش" onclick="orderProduct(this)">اطلب الآن</button>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+    <section id="rating" class="page-section contact-section" data-page="rating">
+      <h2>تقييم الموقع</h2>
+      <p>اختر تقييمك وأضف ملاحظتك هنا، وسنرسلها مباشرة عبر القناة التي اخترتها: واتساب أو ماسنجر.</p>
+      <p>رابط الماسنجر: <strong><a href="https://m.me/YOUR_MESSENGER_USERNAME" target="_blank" rel="noreferrer">https://m.me/YOUR_MESSENGER_USERNAME</a></strong></p>
+      <p>رقم الواتساب: <strong>+962 7 7255 5431</strong></p>
+      <h3>تقييم الموقع</h3>
+      <div style="margin: 20px 0; display: flex; gap: 10px; flex-wrap: wrap;">
+        <button class="button rating-star" type="button" onclick="setRating(1)">★</button>
+        <button class="button rating-star" type="button" onclick="setRating(2)">★★</button>
+        <button class="button rating-star" type="button" onclick="setRating(3)">★★★</button>
+        <button class="button rating-star" type="button" onclick="setRating(4)">★★★★</button>
+        <button class="button rating-star" type="button" onclick="setRating(5)">★★★★★</button>
+      </div>
+      <h3>تقييم التواصل</h3>
+      <div style="margin: 20px 0; display: flex; gap: 10px; flex-wrap: wrap;">
+        <button class="button rating-star contact-rating-star" type="button" onclick="setContactRating(1)">★</button>
+        <button class="button rating-star contact-rating-star" type="button" onclick="setContactRating(2)">★★</button>
+        <button class="button rating-star contact-rating-star" type="button" onclick="setContactRating(3)">★★★</button>
+        <button class="button rating-star contact-rating-star" type="button" onclick="setContactRating(4)">★★★★</button>
+        <button class="button rating-star contact-rating-star" type="button" onclick="setContactRating(5)">★★★★★</button>
+      </div>
+      <textarea id="ratingComment" rows="4" placeholder="اكتب لنا تعليق أو ما تود تغييره هنا" style="width:100%; padding: 14px; border-radius: 12px; border: 1px solid #dcc8bc; resize: vertical; font-size: 1rem; color: #333;"></textarea>
+      <div class="footer-rate">
+        <button class="button secondary" type="button" onclick="sendRating()">إرسال التقييم</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2026 متجر المدهش. جميع الحقوق محفوظة. شكراً لزيارتك.</footer>
+
+  <script>
+    function showSection(page) {
+      document.querySelectorAll('.page-section').forEach(section => {
+        section.classList.toggle('active', section.dataset.page === page);
+      });
+    }
+
+    let selectedRating = 0;
+    let selectedContactRating = 0;
+    let selectedContactMethod = 'messenger';
+
+    function setContactMethod(method) {
+      selectedContactMethod = method;
+      document.querySelectorAll('.contact-button').forEach(button => {
+        button.classList.toggle('active', button.textContent.trim() === (method === 'whatsapp' ? 'واتساب' : 'ماسنجر'));
+      });
+    }
+
+    function getContactUrl(text) {
+      const whatsappPhone = '962772555431';
+      const messengerUsername = 'YOUR_MESSENGER_USERNAME';
+      if (selectedContactMethod === 'whatsapp') {
+        return `https://wa.me/${whatsappPhone}?text=${encodeURIComponent(text)}`;
+      }
+      return `https://m.me/${messengerUsername}?ref=${encodeURIComponent(text)}`;
+    }
+
+    function orderProduct(button) {
+      const product = button.dataset.product;
+      const priceStr = button.dataset.price;
+      const card = button.closest('.card');
+      const quantitySelect = card.querySelector('.quantity');
+      const quantity = quantitySelect ? quantitySelect.value : '1';
+      const text = `السلام عليكم، أريد ${quantity} من ${product} بسعر ${priceStr}.`;
+      const url = getContactUrl(text);
+      window.open(url, '_blank');
+    }
+
+    function setRating(value) {
+      selectedRating = value;
+      document.querySelectorAll('#rating .rating-star').forEach((button, index) => {
+        if ((index + 1) === value) {
+          button.classList.add('selected');
+        } else {
+          button.classList.remove('selected');
+        }
+      });
+    }
+
+    function setContactRating(value) {
+      selectedContactRating = value;
+      document.querySelectorAll('#rating .contact-rating-star').forEach((button, index) => {
+        if ((index + 1) === value) {
+          button.classList.add('selected');
+        } else {
+          button.classList.remove('selected');
+        }
+      });
+    }
+
+    function sendRating() {
+      if (!selectedRating) {
+        alert('رجاءً اختر تقييم الموقع من 1 إلى 5 أولاً.');
+        return;
+      }
+      if (!selectedContactRating) {
+        alert('رجاءً اختر تقييم التواصل من 1 إلى 5 أولاً.');
+        return;
+      }
+      const comment = document.getElementById('ratingComment').value.trim();
+      const text = `السلام عليكم، تقييم الموقع: ${selectedRating} من 5. تقييم التواصل: ${selectedContactRating} من 5. ${comment ? 'ملاحظتي: ' + comment : 'لا يوجد تعليق إضافي.'}`;
+      const url = getContactUrl(text);
+      window.open(url, '_blank');
+    }
+
+    function testContact() {
+      const text = 'مرحباً، أريد اختبار طريقة التواصل.';
+      const url = getContactUrl(text);
+      window.open(url, '_blank');
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      showSection('home');
+      setContactMethod('messenger');
+    });
+  </script>
+</body>
+</html>
